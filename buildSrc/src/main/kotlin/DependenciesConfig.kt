@@ -46,7 +46,7 @@ object DependenciesVersion {
 }
 
 object DependenciesConfig {
-    const val KOTLIN = "org.jetbrains.kotlin:kotlin-stdlib:${DependenciesVersion.Kotlin}"
+    const val Kotlin = "org.jetbrains.kotlin:kotlin-stdlib:${DependenciesVersion.Kotlin}"
     const val CoreKtx = "androidx.core:core-ktx:${DependenciesVersion.Core_Ktx}"
     const val Junit = "junit:junit:${DependenciesVersion.Junit}"
     const val ExtJunit = "androidx.test.ext:junit:${DependenciesVersion.Ext_Junit}"

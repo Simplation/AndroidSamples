@@ -8,5 +8,6 @@
 
 include(":app")
 include(":activitysample")
+include(":CommonLib")
 
 rootProject.name = "AndroidSamples"
