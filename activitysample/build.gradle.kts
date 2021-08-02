@@ -4,25 +4,33 @@ plugins {
 }
 
 android {
-    compileSdk = 30
+    compileSdk = AndroidConfig.compileSdk
 
     defaultConfig {
-        applicationId = "com.simplation.samples"
-        minSdk = 21
-        targetSdk = 30
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = AndroidConfig.applicationId
+        minSdk = AndroidConfig.minSdk
+        targetSdk = AndroidConfig.targetSdk
+        versionCode = AndroidConfig.versionCode
+        versionName = AndroidConfig.versionName
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = AndroidConfig.testInstrumentationRunner
     }
 
     buildTypes {
-        getByName("release") {
-            isMinifyEnabled = false
+        getByName(BuildType.Release) {
+            isMinifyEnabled = BuildTypeRelease.isMinifyEnabled
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+        }
+
+        getByName(BuildType.Debug) {
+            isMinifyEnabled = BuildTypeDebug.isMinifyEnabled
+        }
+
+        testOptions {
+            unitTests.isReturnDefaultValues = TestOptions.isReturnDefaultValues
         }
     }
 
@@ -32,22 +40,27 @@ android {
     }
 
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = JavaVersion.VERSION_11.toString()
     }
 
     buildFeatures {
         viewBinding = true
     }
+
+    lint {
+        isIgnoreTestSources = true
+    }
 }
 
 dependencies {
-    implementation("androidx.appcompat:appcompat:1.3.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.0.4")
-    implementation("com.google.android.material:material:1.3.0")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.2")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.3.0")
-    implementation("androidx.core:core-ktx:1.3.2")
+    implementation(DependenciesConfig.CoreKtx)
+    implementation(DependenciesConfig.AppCompact)
+    implementation(DependenciesConfig.ConstraintLayout)
+    implementation(DependenciesConfig.Material)
+
+    testImplementation(DependenciesConfig.Junit)
+    androidTestImplementation(DependenciesConfig.ExtJunit)
+    androidTestImplementation(DependenciesConfig.EspressoCore)
 }
 
 repositories {
