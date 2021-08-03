@@ -25,4 +25,22 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/startNormalActivity"/>
 
+    <Button
+        android:id="@+id/startAnotherActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Start AnotherActivity."
+        android:textAllCaps="false"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/startDialogActivity"/>
+
+    <Button
+        android:id="@+id/showDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Show Dialog"
+        android:textAllCaps="false"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/startAnotherActivity"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

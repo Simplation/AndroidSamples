@@ -1,8 +1,10 @@
 package com.simplation.activity
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.simplation.activity.databinding.ActivityMainBinding
 
@@ -31,6 +33,35 @@ class MainActivity : AppCompatActivity() {
         binding.startDialogActivity.setOnClickListener {
             val intent = Intent(this, DialogActivity::class.java)
             startActivity(intent)
+        }
+
+        binding.startAnotherActivity.setOnClickListener {
+            // AnotherActivity.actionStart(this, intent)
+        }
+
+        binding.showDialog.setOnClickListener {
+            val dialog = AlertDialog.Builder(this)
+            dialog.setTitle("This is dialog")
+            dialog.setMessage("Something is important.")
+            dialog.setPositiveButton(
+                "OK"
+            ) { _, _ ->
+                Toast.makeText(
+                    this,
+                    "Ok...",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+            dialog.setNegativeButton(
+                "Cancel"
+            ) { _, _ ->
+                Toast.makeText(
+                    this,
+                    "Cancel...",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+            dialog.show()
         }
     }
 
