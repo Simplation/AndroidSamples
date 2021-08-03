@@ -13,6 +13,7 @@ buildscript {
         // classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.21")
         // 和上面的写法作用一样
         // classpath("", DependenciesVersion.Gradle)
+        // classpath(kotlin("kotlin-gradle", DependenciesConfig.Kotlin))
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.21")
 
         // NOTE: Do not place your application dependencies here; they belong
