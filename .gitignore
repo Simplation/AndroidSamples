@@ -118,4 +118,5 @@ lint/tmp/
 hs_err_pid*
 
 /.idea/
+/.idea/misc.xml
 
