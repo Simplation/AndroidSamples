@@ -8,7 +8,7 @@ android {
     compileSdk = AndroidConfig.compileSdk
 
     defaultConfig {
-        applicationId = "com.simplation.activity"
+        applicationId = "com.simplation.broadcast"
         minSdk = AndroidConfig.minSdk
         targetSdk = AndroidConfig.targetSdk
         versionCode = AndroidConfig.versionCode
