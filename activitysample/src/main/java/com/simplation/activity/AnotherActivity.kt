@@ -9,11 +9,23 @@ class AnotherActivity : AppCompatActivity() {
 
     companion object {
         fun actionStart(context: Context, data1: String, data2: String) {
-            val intent = Intent(context, AnotherActivity::class.java)
-            intent.putExtra("param1", data1)
-            intent.putExtra("param2", data2)
-            context.startActivity(intent)
+            Intent(context, AnotherActivity::class.java).run {
+                putExtra("param1", data1)
+                putExtra("param2", data2)
+                context.startActivity(this)
+            }
         }
+
+        /*
+        // 传递对象
+        fun actionStart(context: Context, user: User) {
+            Intent(context, AnotherActivity::class.java).run {
+                val bundle = Bundle()
+                bundle.putParcelable("user", user)
+                putExtras(bundle)
+                context.startActivity(this)
+            }
+        }*/
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

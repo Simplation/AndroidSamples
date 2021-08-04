@@ -26,42 +26,40 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.startNormalActivity.setOnClickListener {
-            val intent = Intent(this, NormalActivity::class.java)
-            startActivity(intent)
+            Intent(this, NormalActivity::class.java).run {
+                startActivity(this)
+            }
         }
 
         binding.startDialogActivity.setOnClickListener {
-            val intent = Intent(this, DialogActivity::class.java)
-            startActivity(intent)
+            Intent(this, DialogActivity::class.java).run {
+                startActivity(this)
+            }
         }
 
         binding.startAnotherActivity.setOnClickListener {
-            // AnotherActivity.actionStart(this, intent)
+            AnotherActivity.actionStart(this, "data1", "data2")
         }
 
         binding.showDialog.setOnClickListener {
-            val dialog = AlertDialog.Builder(this)
-            dialog.setTitle("This is dialog")
-            dialog.setMessage("Something is important.")
-            dialog.setPositiveButton(
-                "OK"
-            ) { _, _ ->
-                Toast.makeText(
-                    this,
-                    "Ok...",
-                    Toast.LENGTH_SHORT
-                ).show()
+            AlertDialog.Builder(this).run {
+                setTitle("This is dialog")
+                    .setMessage("Something is important.")
+                    .setPositiveButton("OK") { _, _ ->
+                        Toast.makeText(
+                            this@MainActivity,
+                            "Ok...",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                    .setNegativeButton("Cancel") { _, _ ->
+                        Toast.makeText(
+                            this@MainActivity,
+                            "Cancel...",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }.show()
             }
-            dialog.setNegativeButton(
-                "Cancel"
-            ) { _, _ ->
-                Toast.makeText(
-                    this,
-                    "Cancel...",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-            dialog.show()
         }
     }
 
