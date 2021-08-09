@@ -59,12 +59,12 @@ class MainActivity : AppCompatActivity() {
                 }
             } else {
                 val network = connectivityManager.activeNetwork
-                val nc = connectivityManager.getNetworkCapabilities(network)
-                if (network != null && nc != null) {
+                val networkCapabilities = connectivityManager.getNetworkCapabilities(network)
+                if (network != null && networkCapabilities != null) {
                     Toast.makeText(context, "network is available", Toast.LENGTH_SHORT).show()
-                    if (nc.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)) {
+                    if (networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)) {
                         Toast.makeText(context, "WIFI", Toast.LENGTH_SHORT).show()
-                    } else if (nc.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)) {
+                    } else if (networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)) {
                         Toast.makeText(context, "移动数据...", Toast.LENGTH_SHORT).show()
                     }
                 } else {
