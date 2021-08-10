@@ -12,3 +12,4 @@ include(":CommonLib")
 
 rootProject.name = "AndroidSamples"
 include(":broadcastsample")
+include(":contactsample")
