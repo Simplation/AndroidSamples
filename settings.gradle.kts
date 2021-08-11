@@ -6,10 +6,12 @@
     }
 }*/
 
-include(":app")
-include(":activitysample")
+rootProject.name = "AndroidSamples"
+
 include(":CommonLib")
 
-rootProject.name = "AndroidSamples"
+include(":app")
+include(":activitysample")
 include(":broadcastsample")
 include(":contactsample")
+include(":cameraalbumsample")
