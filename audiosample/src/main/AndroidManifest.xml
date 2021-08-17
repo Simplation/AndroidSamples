@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.simplation.list">
+    package="com.simplation.audio">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -9,15 +11,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidSamples">
-
-        <activity
-            android:name=".recycler_view.RecyclerViewActivity"
-            android:exported="true" />
-
-        <activity
-            android:name=".list_view.ListViewActivity"
-            android:exported="true" />
-
         <activity
             android:name=".MainActivity"
             android:exported="true">
