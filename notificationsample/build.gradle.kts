@@ -7,7 +7,7 @@ android {
     compileSdk = AndroidConfig.compileSdk
 
     defaultConfig {
-        applicationId = "com.simplation.activity"
+        applicationId = "com.simplation.notification"
         minSdk = AndroidConfig.minSdk
         targetSdk = AndroidConfig.targetSdk
         versionCode = AndroidConfig.versionCode
@@ -57,6 +57,9 @@ dependencies {
     implementation(DependenciesConfig.AppCompact)
     implementation(DependenciesConfig.ConstraintLayout)
     implementation(DependenciesConfig.Material)
+    implementation("androidx.appcompat:appcompat:1.2.0")
+    implementation("com.google.android.material:material:1.3.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.0.4")
 
     testImplementation(DependenciesConfig.Junit)
     androidTestImplementation(DependenciesConfig.ExtJunit)
