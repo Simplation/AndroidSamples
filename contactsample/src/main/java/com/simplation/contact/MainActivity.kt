@@ -13,7 +13,7 @@ import com.simplation.contact.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private var adapter: ArrayAdapter<String>? = null
+    private lateinit var adapter: ArrayAdapter<String>
     private val contactsList: MutableList<String> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity() {
                     contactsList.add(displayName + "\n" + number)
                 }
 
-                adapter!!.notifyDataSetChanged()
+                adapter.notifyDataSetChanged()
             }
         } catch (e: Exception) {
             e.printStackTrace()
