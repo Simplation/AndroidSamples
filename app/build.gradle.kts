@@ -53,6 +53,8 @@ dependencies {
     implementation(DependenciesConfig.AppCompact)
     implementation(DependenciesConfig.Material)
 
+    implementation(project(mapOf("path" to ":CommonLib")))
+
     testImplementation(DependenciesConfig.Junit)
     androidTestImplementation(DependenciesConfig.ExtJunit)
     androidTestImplementation(DependenciesConfig.EspressoCore)
