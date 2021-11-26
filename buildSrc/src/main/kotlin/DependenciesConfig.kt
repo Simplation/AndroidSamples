@@ -6,7 +6,7 @@
  */
 object DependenciesVersion {
     const val Gradle = "7.0.0"
-    const val Kotlin = "1.5.21"
+    const val Kotlin = "1.6.0"
     const val Core_Ktx = "1.3.2"
     const val Junit = "4.13.2"
     const val Ext_Junit = "1.1.2"
