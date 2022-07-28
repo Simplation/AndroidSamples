@@ -7,7 +7,7 @@ android {
     compileSdk = AndroidConfig.compileSdk
 
     defaultConfig {
-        applicationId = "com.simplation.audio"
+        applicationId = "com.simplation.json"
         minSdk = AndroidConfig.minSdk
         targetSdk = AndroidConfig.targetSdk
         versionCode = AndroidConfig.versionCode
