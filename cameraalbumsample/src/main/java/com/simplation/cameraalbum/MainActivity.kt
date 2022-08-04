@@ -1,7 +1,5 @@
 package com.simplation.cameraalbum
 
-import android.annotation.SuppressLint
-import android.annotation.TargetApi
 import android.app.Activity
 import android.content.ContentUris
 import android.content.Intent
@@ -14,6 +12,8 @@ import android.os.Bundle
 import android.provider.DocumentsContract
 import android.provider.MediaStore
 import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
@@ -23,16 +23,15 @@ import java.io.File
 class MainActivity : AppCompatActivity() {
     private lateinit var imageUri: Uri
     private lateinit var binding: ActivityMainBinding
-
-    companion object {
-        const val TAKE_PHOTO = 1
-        const val CHOOSE_PHOTO = 2
-    }
+    private lateinit var takePhoto: ActivityResultLauncher<Intent>
+    private lateinit var choosePhoto: ActivityResultLauncher<Intent>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        registerResult()
 
         // 调用摄像头拍照
         binding.takePhoto.setOnClickListener {
@@ -60,7 +59,8 @@ class MainActivity : AppCompatActivity() {
 
             val intent = Intent("android.media.action.IMAGE_CAPTURE")
             intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri)
-            startActivityForResult(intent, TAKE_PHOTO)
+            takePhoto.launch(intent)
+            // startActivityForResult(intent, TAKE_PHOTO)
         }
 
         // 从相册获取图片
@@ -82,10 +82,37 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun registerResult() {
+        takePhoto =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+                if (it.resultCode == Activity.RESULT_OK) {
+                    try {
+                        val bitmap =
+                            BitmapFactory.decodeStream(contentResolver.openInputStream(imageUri))
+                        binding.picture.setImageBitmap(bitmap)
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                    }
+                }
+            }
+
+        choosePhoto =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+                if (it.resultCode == Activity.RESULT_OK) {
+                    if (Build.VERSION.SDK_INT >= 19) {
+                        handleImageOnKitKat(it.data)
+                    } else {
+                        handleImageBeforeKitKat(it.data)
+                    }
+                }
+            }
+    }
+
     private fun openAlbum() {
         Intent("android.intent.action.GET_CONTENT").apply {
             type = "image/*"
-            startActivityForResult(this, CHOOSE_PHOTO)
+            choosePhoto.launch(this)
+            //startActivityForResult(this, CHOOSE_PHOTO)
         }
     }
 
@@ -105,6 +132,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /*
+    @Deprecated("outdated method")
     @SuppressLint("ObsoleteSdkInt")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -123,7 +152,7 @@ class MainActivity : AppCompatActivity() {
                 handleImageBeforeKitKat(data)
             }
         }
-    }
+    }*/
 
     private fun handleImageBeforeKitKat(data: Intent?) {
         val uri = data!!.data
@@ -131,7 +160,6 @@ class MainActivity : AppCompatActivity() {
         displayImage(imagePath)
     }
 
-    @TargetApi(19)
     private fun handleImageOnKitKat(data: Intent?) {
         var imagePath: String? = null
         val uri = data!!.data
@@ -177,7 +205,8 @@ class MainActivity : AppCompatActivity() {
         val cursor = contentResolver.query(uri!!, null, selection, null, null)
         if (cursor != null) {
             if (cursor.moveToFirst()) {
-                path = cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DATA))
+                // path = cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DATA))
+                path = cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA))
             }
             cursor.close()
         }

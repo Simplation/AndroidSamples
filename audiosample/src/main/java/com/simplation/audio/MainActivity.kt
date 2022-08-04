@@ -5,7 +5,6 @@ import android.content.pm.PackageManager
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Environment
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -41,7 +40,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun initMediaPlayer() {
         try {
-            val file = File(Environment.getExternalStorageDirectory(), "sound_2.wav")
+            // val file = File(Environment.getExternalStorageDirectory(), "sound_2.wav")
+            val file = File(getExternalFilesDir(null), "sound_2.wav")
             // 指定路径
             mediaPlayer.setDataSource(file.path)
             // 进入准备状态
@@ -92,9 +92,7 @@ class MainActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
 
-        if (mediaPlayer != null) {
-            mediaPlayer.stop()
-            mediaPlayer.release()
-        }
+        mediaPlayer.stop()
+        mediaPlayer.release()
     }
 }

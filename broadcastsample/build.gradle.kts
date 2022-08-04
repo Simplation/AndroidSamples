@@ -63,8 +63,3 @@ dependencies {
     androidTestImplementation(DependenciesConfig.ExtJunit)
     androidTestImplementation(DependenciesConfig.EspressoCore)
 }
-
-repositories {
-    mavenCentral()
-    google()
-}
