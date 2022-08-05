@@ -4,15 +4,58 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="15dp"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/btn_json_object"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="parse Json Object"
+        android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_json_array"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="parse Json Array"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_json_object" />
+
+    <Button
+        android:id="@+id/btn_complex_json_object"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="parse Complex Json Object"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_json_array" />
+
+    <Button
+        android:id="@+id/btn_complex_json_array"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="parse Complex Json Array"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_complex_json_object" />
+
+    <Button
+        android:id="@+id/btn_parse_complex_json"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="parse Complex Json"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_complex_json_array" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

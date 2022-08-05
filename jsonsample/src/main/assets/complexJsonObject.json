@@ -1,0 +1,10 @@
+{
+  "name": "Simplation",
+  "age": 20,
+  "male": true,
+  "address": {
+    "street": "Simplation Street",
+    "city": "Shanxi",
+    "country": "China"
+  }
+}

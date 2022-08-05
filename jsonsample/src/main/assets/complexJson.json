@@ -1,0 +1,46 @@
+{
+  "buses": {
+    "bus": [
+      {
+        "last_foot_dist": "0",
+        "time": "37",
+        "segments": {
+          "segment": [
+            {
+              "line_name": "立珊专线(中南大学学生公寓-长沙火车站)",
+              "foot_dist": "362",
+              "stat_xys": "",
+              "stats": "岳麓山南;湖南师大;二里半;岳麓山北;市四医院;华图教育(太平街口);牛耳教育(南阳街口);韭菜园;曙光路口;长岛路口;长沙火车站",
+              "end_stat": "长沙火车站",
+              "line_xys": "",
+              "line_dist": "7535",
+              "start_stat": "岳麓山南"
+            }
+          ]
+        },
+        "foot_dist": "362",
+        "dist": "7897"
+      },
+      {
+        "last_foot_dist": "0",
+        "time": "41",
+        "segments": {
+          "segment": [
+            {
+              "line_name": "旅1路(科教新村-长沙火车站)",
+              "foot_dist": "337",
+              "stat_xys": "",
+              "stats": "岳麓山南;湖南师大;二里半;岳麓山北;市四医院;华图教育(太平街口);蔡锷中路口;韭菜园;乔庄;曙光路口;长岛路口;五一东村;车站路口;长沙火车站",
+              "end_stat": "长沙火车站",
+              "line_xys": "",
+              "line_dist": "7822",
+              "start_stat": "岳麓山南"
+            }
+          ]
+        },
+        "foot_dist": "337",
+        "dist": "8159"
+      }
+    ]
+  }
+}

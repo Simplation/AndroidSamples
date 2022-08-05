@@ -61,4 +61,7 @@ dependencies {
     testImplementation(DependenciesConfig.Junit)
     androidTestImplementation(DependenciesConfig.ExtJunit)
     androidTestImplementation(DependenciesConfig.EspressoCore)
+
+    // Gson
+    implementation("com.google.code.gson:gson:2.9.1")
 }

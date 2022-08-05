@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Simplation",
+    "age": 20,
+    "male": true,
+    "address": {
+      "street": "Simplation Street",
+      "city": "Shanxi",
+      "country": "China"
+    }
+  },
+  {
+    "name": "simplation",
+    "age": 22,
+    "male": false,
+    "address": {
+      "street": "simplation street",
+      "city": "Hunan",
+      "country": "China"
+    }
+  }
+]
