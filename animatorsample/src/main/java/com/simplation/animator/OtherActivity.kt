@@ -1,14 +1,9 @@
 package com.simplation.animator
 
 import android.R
-import android.animation.Animator
 import android.graphics.drawable.Animatable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.transition.Explode
-import android.transition.Fade
-import android.transition.Slide
-import android.view.Window
 import com.simplation.animator.databinding.ActivityOtherBinding
 import android.graphics.drawable.Drawable
 import android.os.Build

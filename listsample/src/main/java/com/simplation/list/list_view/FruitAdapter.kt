@@ -18,7 +18,7 @@ import com.simplation.list.R
  */
 class FruitAdapter(context: Context, resource: Int, objects: MutableList<Fruit>) :
     ArrayAdapter<Fruit>(context, resource, objects) {
-    var resourceId :Int = 0
+    var resourceId: Int = 0
     private var data = mutableListOf<Fruit>()
 
     init {
@@ -28,13 +28,9 @@ class FruitAdapter(context: Context, resource: Int, objects: MutableList<Fruit>)
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val fruit = data[position]
-        val view: View
 
-        if (convertView == null) {
-            view = LayoutInflater.from(context).inflate(R.layout.fruit_item, parent, false)
-        } else {
-            view = convertView
-        }
+        val view: View =
+            convertView ?: LayoutInflater.from(context).inflate(R.layout.fruit_item, parent, false)
 
         val fruitImage = view.findViewById(R.id.fruit_image) as ImageView
         val fruitName = view.findViewById(R.id.fruit_name) as TextView
@@ -43,4 +39,4 @@ class FruitAdapter(context: Context, resource: Int, objects: MutableList<Fruit>)
 
         return view
     }
-    }
+}

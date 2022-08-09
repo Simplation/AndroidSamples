@@ -20,9 +20,9 @@ class MyDataBaseHelper(
     SQLiteOpenHelper(context, name, factory, version) {
 
     companion object {
-        val CREATE_BOOK: String =
+        const val CREATE_BOOK: String =
             "create table Book(id integer primary key autoincrement, author text, price real, pages integer, name text)"
-        val CREATE_CATEGORY: String =
+        const val CREATE_CATEGORY: String =
             "create table Category(id integer primary key autoincrement, category_name text, category_code integer)"
     }
 

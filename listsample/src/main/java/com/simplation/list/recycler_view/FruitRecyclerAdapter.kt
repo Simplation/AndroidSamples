@@ -13,7 +13,7 @@ import com.simplation.list.databinding.FruitRecyclerItemBinding
  * @描述:
  * @更新:
  */
-class FruitRecyclerAdapter(var mFruitList: MutableList<Fruit>) :
+class FruitRecyclerAdapter(private var mFruitList: MutableList<Fruit>) :
     RecyclerView.Adapter<FruitRecyclerAdapter.FruitViewHolder>() {
 
     private lateinit var onClick: OnItemClickListener
@@ -40,7 +40,7 @@ class FruitRecyclerAdapter(var mFruitList: MutableList<Fruit>) :
         return mFruitList.size
     }
 
-    class FruitViewHolder(var itemBinding: FruitRecyclerItemBinding) :
+    class FruitViewHolder(private var itemBinding: FruitRecyclerItemBinding) :
         RecyclerView.ViewHolder(itemBinding.root) {
         fun bind(fruit: Fruit) {
             itemBinding.fruitImage.setImageResource(fruit.imageId)

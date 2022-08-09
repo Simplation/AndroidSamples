@@ -92,7 +92,9 @@ class MainActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
 
-        mediaPlayer.stop()
-        mediaPlayer.release()
+        mediaPlayer.apply {
+            stop()
+            release()
+        }
     }
 }

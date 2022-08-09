@@ -41,10 +41,10 @@ class MainActivity : AppCompatActivity() {
             notificationChannel.lockscreenVisibility = Notification.VISIBILITY_PRIVATE
             notificationChannel.setShowBadge(true)
             notificationChannel.setBypassDnd(true)
-            // notificationChannel.setVibrationPattern(longArrayOf(){ 100, 200, 300, 400 });
-            notificationChannel.description = "channel";
+            // notificationChannel.setVibrationPattern(longArrayOf(){ 100, 200, 300, 400 })
+            notificationChannel.description = "channel"
 
-            manager.createNotificationChannel(notificationChannel);
+            manager.createNotificationChannel(notificationChannel)
             // 取消通知栏图标
             // manager.cancel(1)
 
