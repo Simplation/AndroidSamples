@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">localstoragesample</string>
+    <string name="sp_save">SharedPreferences 存储</string>
+    <string name="file_save">File 存储</string>
+    <string name="sqlite_save">SQLite 存储</string>
+    <string name="cp_save">ContentProvider 存储</string>
+</resources>
