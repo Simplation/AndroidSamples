@@ -12,6 +12,6 @@ class CPActivity : AppCompatActivity() {
         binding = ActivityCpBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
+        title = intent.getStringExtra("title")
     }
 }

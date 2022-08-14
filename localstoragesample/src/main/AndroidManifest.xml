@@ -14,16 +14,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidSamples">
         <activity
-            android:name=".CPActivity"
+            android:name=".all.CPActivity"
             android:exported="false" />
         <activity
-            android:name=".SQLiteActivity"
+            android:name=".all.SQLiteActivity"
             android:exported="false" />
         <activity
-            android:name=".FileActivity"
+            android:name=".all.FileActivity"
             android:exported="false" />
         <activity
-            android:name=".SPActivity"
+            android:name=".all.SPActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
@@ -34,6 +34,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:authorities="com.simplation.localstorage.MyProvider"
+            android:name=".MyProvider" />
     </application>
 
 </manifest>
