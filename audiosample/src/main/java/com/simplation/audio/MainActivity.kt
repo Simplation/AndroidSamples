@@ -3,9 +3,9 @@ package com.simplation.audio
 import android.Manifest
 import android.content.pm.PackageManager
 import android.media.MediaPlayer
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.simplation.audio.databinding.ActivityMainBinding
@@ -21,8 +21,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        initClick()
-
         if (ContextCompat.checkSelfPermission(
                 this,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE
@@ -34,8 +32,17 @@ class MainActivity : AppCompatActivity() {
                 1
             )
         } else {
-            initMediaPlayer()
+            initMediaPlayer()  // 本地音频播放
+
+            initVideoView()  // 本地视频播放
+
+            initClick()
         }
+    }
+
+    private fun initVideoView() {
+        val file = File(getExternalFilesDir(null), "播放文件名称+后缀")
+        binding.videoView.setVideoPath(file.path)
     }
 
     private fun initMediaPlayer() {
