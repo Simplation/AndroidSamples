@@ -61,4 +61,7 @@ dependencies {
     testImplementation(DependenciesConfig.Junit)
     androidTestImplementation(DependenciesConfig.ExtJunit)
     androidTestImplementation(DependenciesConfig.EspressoCore)
+
+    // okhttp
+    implementation("com.squareup.okhttp3:okhttp:3.4.1")
 }
